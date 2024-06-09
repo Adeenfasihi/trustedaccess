@@ -3,3 +3,4 @@ pymysql
 SQLAlchemy
 cryptography
 Flask-SQLAlchemy
+gunicorn
