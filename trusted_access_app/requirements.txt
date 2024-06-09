@@ -1,0 +1,5 @@
+Flask
+pymysql
+SQLAlchemy
+cryptography
+Flask-SQLAlchemy
