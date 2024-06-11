@@ -16,8 +16,8 @@ COPY . .
 # Set the environment variable for Flask
 ENV FLASK_APP=trusted_access_app
 
-# Expose port 5000 for the Flask app
-EXPOSE 5000
+# Expose port 5001 for the Flask app
+EXPOSE 5001
 
 WORKDIR /app/trusted_access_app
 # Run the Flask application
