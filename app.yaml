@@ -1,0 +1,7 @@
+runtime: python37
+
+env_variables:
+  CLOUD_SQL_USERNAME: dev_user
+  CLOUD_SQL_PASSWORD: password
+  CLOUD_SQL_DATABASE_NAME: reboot2024
+  CLOUD_SQL_CONNECTION_NAME: lbplc-reboot24lon-980:europe-west2:reboot2024
