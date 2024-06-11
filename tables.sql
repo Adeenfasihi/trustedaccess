@@ -1,15 +1,15 @@
-CREATE TABLE trusted_access_bank.users (
+CREATE TABLE reboot2024.users (
     user_id BIGINT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     first_name VARCHAR(255) NOT NULL,
-    last_name VARCHAT(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
     account_number BIGINT NOT NULL UNIQUE,
     account_balance FLOAT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE trusted_access_bank.trusted_access (
+CREATE TABLE reboot2024.trusted_access (
     trust_id BIGINT AUTO_INCREMENT UNIQUE,
     user_id BIGINT NOT NULL,
     trusted_user_id BIGINT NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE trusted_access_bank.trusted_access (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE trusted_access_bank.login_details (
+CREATE TABLE reboot2024.login_details (
     login_id BIGINT AUTO_INCREMENT PRIMARY KEY,
     user_id BIGINT NOT NULL,
     login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -30,10 +30,15 @@ CREATE TABLE trusted_access_bank.login_details (
 );
 
 
--- users and trusted_access:
-
---     One-to-Many relationship: Each user can trust multiple other users (through trusted_access).
-
+CREATE TABLE reboot2024.transactions (
+    transaction_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    amount FLOAT NOT NULL,
+    transaction_type ENUM('deposit', 'withdrawal', 'transfer') NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    description VARCHAR(255),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) 
+)
 -- users and login:
 
 --     One-to-Many relationship: Each user can have multiple login records.

@@ -39,7 +39,7 @@ class login_details(db.Model):
 class transactions(db.Model):
     __tablename__ = 'transactions'
 
-    transaction_id = db.Column(BIGINT(unsigned=True), primary_key=True)
+    transaction_id = db.Column(BIGINT(unsigned=True), primary_key=True, autoincrement=True)
     user_id = db.Column(BIGINT(unsigned=True), db.ForeignKey('users.user_id'), nullable=False)
     amount = db.Column(db.Float, nullable=False)
     transaction_type = db.Column(db.Enum('deposit', 'withdrawal', 'transfer'), nullable=False)
